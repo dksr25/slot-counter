@@ -1,0 +1,7 @@
+{
+  "name": "slot-count",
+  "version": "0.0.1",
+  "main": "slot-counter.js",
+  "license": "MIT",
+  "description": "javascript slot-count animation maker"
+}

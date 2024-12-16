@@ -1,0 +1,69 @@
+.counter{
+  display: flex;
+  flex-flow: row nowrap;
+  font-size: var(--counter-font-size, 120px);
+  font-kerning: none;
+  line-height: 1.1;
+  color: var(--counter-color, #111);
+}
+
+.counter-slot {
+  flex: 0 0 auto;
+  position: relative;
+  overflow: hidden;
+  height: 1.1em;
+}
+
+div.counter-slot:nth-of-type(odd) .counter-roll{
+  transform: translateY(-95%);
+}
+
+div.counter-slot:nth-of-type(even) .counter-roll{
+  transform: translateY(-96.25%);
+}
+
+q.counter-slot .counter-roll{
+  width: 0.3em;
+  transform: translateY(-96.25%);
+}
+
+.counter-slot:before {
+  content: none;
+}
+
+.counter-slot:after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(0deg, var(--counter-bg-color, #fff) 0%, rgba(255 255 255/0) 30%, rgba(255 255 255/0) 70%, var(--counter-bg-color, #fff) 100%);
+  transition: opacity 0.5s;
+  content: "";
+}
+
+.counter-roll {
+  display: block;
+  width: 0.6em;
+  word-break: break-all;
+  transition: transform cubic-bezier(0.7, 0.01, 0.39, 0.98) 0.5s;
+}
+
+div.counter-slot.is-rolling .counter-roll,
+q.counter-slot.is-rolling .counter-roll {
+  transform: translateY(0);
+}
+
+.counter-slot.is-end:after {
+  opacity: 0;
+}
+
+div.counter-slot.is-end .counter-roll,
+q.counter-slot.is-end .counter-roll {
+  transform: translateY(0);
+}
+
+.counter-roll span {
+  display: block;
+  text-align: center;
+}
